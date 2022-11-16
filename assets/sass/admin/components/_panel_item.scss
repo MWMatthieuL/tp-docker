@@ -1,0 +1,66 @@
+/*
+   V2
+   ========================================================================== */
+
+.panel-item-list {
+    margin-bottom: 15px;
+    background-color: #e6ebf1;
+    @include box-shadow( 0 1px 1px rgba(0,0,0,0.05) );
+}
+.panel-item {
+    margin-top: 8px;
+    padding: 15px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.pi-child-list {
+    padding: 0 15px 15px;
+
+    .pi-sortable-content {
+        margin-top: 6px;
+
+        > .pi-child-list {
+            padding: 0 0 0 15px;
+        }
+    }
+}
+.pi-child {
+    background-color: #fff;
+
+    .pih-action {
+        margin-right: 0;
+    }
+}
+.pi-header {
+
+    .media {
+        display: block;
+        float: left;
+    }
+
+    .media-body {
+        width: auto;
+        vertical-align: middle;
+    }
+}
+.pih-actions-list {
+    float: right;
+
+    > div {
+        float: left;
+    }
+}
+.pih-action {
+    margin-right: 15px;
+    margin-top: 6px;
+}
+.pih-action-icon {
+    margin-top: 0;
+
+    .fa {
+        color: #6b7486;
+    }
+}

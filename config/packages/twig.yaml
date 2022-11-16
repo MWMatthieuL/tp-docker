@@ -1,0 +1,5 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    globals:
+        locales: '%locales%'
+        project_name: '%env(PROJECT_NAME)%'

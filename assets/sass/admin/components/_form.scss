@@ -1,0 +1,5 @@
+// FORM FIELD REQUIRED
+.required:after {
+    content: '*';
+    color: $brand-danger;
+}

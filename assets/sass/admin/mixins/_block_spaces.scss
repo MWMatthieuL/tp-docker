@@ -1,0 +1,27 @@
+/*
+   Block spaces helpers
+   ========================================================================== */
+@mixin loop-block-spaces($property, $integer, $direction:false) {
+    $p: str-slice($property, 1, 1);
+    $d: if($direction != false, str-slice($direction, 1, 1), '');
+    $full-patern: #{$p}#{$d};
+    $class: if($direction != false, $full-patern, $p);
+    $the-property: if($direction != false, $property +'-'+ $direction, $property);
+    .#{$class}-0 {
+        #{$the-property}: 0 !important;
+    }
+    @while $integer > 0 {
+        .#{$class}-#{$integer} {
+            #{$the-property}: #{$integer}px !important;
+        }
+        $integer: if($integer == 0, 0, $integer - 5);
+    }
+}
+
+@each $direction in (top, bottom, right, left) {
+    @include loop-block-spaces(margin, 35, $direction);
+    @include loop-block-spaces(padding, 35, $direction);
+}
+
+@include loop-block-spaces(margin, 35);
+@include loop-block-spaces(padding, 35);

@@ -1,0 +1,79 @@
+# This file override the default configuration ;
+# Please copy this file as docker-compose-dev.yml ;
+# Then configure the file as you need.
+
+# Declaration of services
+services:
+  ssh-agent:
+    platform: linux/amd64
+    image: nardeas/ssh-agent:latest
+    volumes:
+      - "socket_dir:/.ssh-agent"
+      - "~/mw-ssh:/root/.ssh:ro"
+    environment:
+      - SSH_AUTH_SOCK=/.ssh-agent/socket
+
+  # App service
+  app:
+    ports:
+      - "8085:8085"
+      - "443:443"
+    volumes:
+      - "socket_dir:/.ssh-agent"
+      - "~/mw-ssh:/root/.ssh:ro"
+
+  # Phpmyadmin service
+  phpmyadmin:
+    image: phpmyadmin:latest
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      UPLOAD_LIMIT: 512M
+      MAX_EXECUTION_TIME: 300
+    networks:
+      - "matop_network"
+
+  # Mailcatcher service
+  mailcatcher:
+    image: sj26/mailcatcher:latest
+    ports:
+      - "1080:1080"
+    networks:
+      matop_network:
+        aliases:
+          - mailcatchersmtp
+
+  # sonarqube service
+  sonarqube:
+    image: mwizner/sonarqube:8.9.5-community
+    ports:
+      - "9000:9000"
+    networks:
+      matop_network:
+        aliases:
+          - sonarqube
+
+  # selenium service
+  selenium:
+    image: selenium/standalone-chrome-debug:latest
+    ports:
+      - "5900:5900"
+    shm_size: "2g"
+    networks:
+      - "matop_network"
+
+  # blackfire service
+  blackfire:
+    image: blackfire/blackfire:v2
+    environment:
+      BLACKFIRE_LOG_LEVEL: 4
+      BLACKFIRE_SERVER_ID:
+      BLACKFIRE_SERVER_TOKEN:
+    networks:
+      - "matop_network"
+
+# Volumes
+volumes:
+  socket_dir:

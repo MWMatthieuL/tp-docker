@@ -1,0 +1,93 @@
+/*
+   Colors
+   ========================================================================== */
+$brand-primary: #343a40;
+$brand-color: $brand-primary;
+$brand-secondary: #000000;
+$brand-success: #339933;
+
+
+/*
+   Scaffolding
+   ========================================================================== */
+//$body-bg: #d9e2eb;
+$body-bg: #ececec;
+
+
+/*
+   Typography
+   ========================================================================== */
+$headings-color: $brand-primary;
+$headings-font-weight: 300;
+
+
+
+
+/*
+   Header
+   ========================================================================== */
+$header-bg: #343a40;
+$header-user-dropdown-text-color: #ffffff;
+$header-user-dropdown-icon-color: $header-user-dropdown-text-color;
+
+
+/*
+   Aside menu
+   ========================================================================== */
+$aside-menu-list-item-icon-color: #2f6190;
+$aside-menu-list-item-link-color: #505b72;
+$aside-menu-list-item-current-bg: $brand-primary;
+
+/*
+   Buttons
+   ========================================================================== */
+$btn-default-color: #fff;
+$btn-default-bg: #939393;
+$btn-default-border: #939393;
+
+$btn-secondary-color: #fff;
+$btn-secondary-bg: $brand-secondary;
+$btn-secondary-border: $brand-secondary;
+
+
+/*
+   Tabs
+   ========================================================================== */
+$nav-tabs-default-bg-color: $body-bg !default;
+$nav-tabs-default-link-bg-color: #ecf1f5 !default;
+$nav-tabs-default-border-color: #fff !default;
+$nav-tabs-default-link-color: $brand-primary !default;
+$nav-tabs-default-link-border-color: $nav-tabs-default-link-bg-color !default;
+$nav-tabs-default-active-link-bg-color: #fff !default;
+$nav-tabs-default-active-link-border-color: #fff !default;
+$nav-tabs-default-active-link-color: $nav-tabs-default-link-bg-color !default;
+
+
+/*
+   Panels
+   ========================================================================== */
+$panel-default-heading-bg: #e6ebf1;
+$panel-default-border: #e6ebf1;
+$panel-default-bg: #e6ebf1;
+
+
+
+/*
+   Labels
+   ========================================================================== */
+$label-border-radius: 10px !default;
+$label-lateral-padding: 10px !default;
+
+
+
+/*
+   Checkboxes, radio
+   ========================================================================== */
+
+$ckbox-default-checked-color: #999;
+
+
+/*
+   Modals
+   ========================================================================== */
+//$modal-md: 720px;

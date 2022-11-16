@@ -1,0 +1,64 @@
+{
+    "name": "tp-docker",
+    "version": "1.0.0",
+    "description": "Symfony skeleton for Mentalworks",
+    "author": "Mentalworks <contact@mentalworks.fr>",
+    "license": "MIT",
+    "scripts": {
+        "precommit": "lint-staged",
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "pre-commit": "precommit",
+    "lint-staged": {
+        "assets/js/**/*.js": [
+            "yarn eslint --fix"
+        ],
+        "*.scss": [
+            "sass-lint -v -q"
+        ],
+        "features/*.feature": [
+            "gherkin-lint"
+        ],
+        "*.php": [
+            "make php-cs-fixer",
+            "git add"
+        ],
+        "*.(yml|yaml)": [
+            "yamllint"
+        ]
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "core-js": "^3.0.0",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.1.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-react": "^7.19.0",
+        "gherkin-lint": "^3.4.0",
+        "lint-staged": "^10.0.9",
+        "pre-commit": "^1.2.2",
+        "sass-lint": "^1.13.1",
+        "webpack-notifier": "^1.6.0",
+        "yaml-lint": "^1.2.4"
+    },
+    "dependencies": {
+        "@symfony/webpack-encore": "^1.8.1",
+        "blueimp-file-upload": "^10.0.0",
+        "bootstrap-colorpicker": "^2.5.3",
+        "bootstrap-datepicker": "^1.9.0",
+        "bootstrap-sass": "^3.4.1",
+        "copy-webpack-plugin": "^5.1.1",
+        "font-awesome": "^4.7.0",
+        "fontawesome-iconpicker": "^1.4.1",
+        "jquery-ui": "^1.11.1",
+        "node-sass": "^6.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "sass-loader": "^12.4.0",
+        "select2": "^4.0.13",
+        "tinymce": "4.9.9"
+    }
+}

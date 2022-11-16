@@ -1,0 +1,18 @@
+# Flashes
+flash.new.success: Sauvegarde effectuée.
+flash.new.error: Une erreur est survenue lors de la sauvegarde.
+flash.edit.success: Modification effectuée.
+flash.edit.error: Une erreur est survenue lors de la modification.
+flash.delete.success: Suppression effectuée.
+flash.delete.error: Une erreur est survenue lors de la suppression.
+flash.form.error: Formulaire invalide. Veuillez vérifier votre saisie.
+
+# Common actions
+common.new: Nouveau
+common.delete: Supprimer
+common.save: Sauvegarder
+common.back_to_list: Retour à la liste
+common.confirm_deletion: Souhaitez-vous confirmer la suppression ?
+# entities
+user.username: Nom d'utilisateur
+user.last_name: Nom de famille

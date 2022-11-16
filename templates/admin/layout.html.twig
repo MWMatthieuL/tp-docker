@@ -1,0 +1,20 @@
+{% extends '@SmartAdmin/layout.html.twig' %}
+
+{% block content %}
+    <h3>{% block content_title %}{{ block('title') }}{% endblock %}</h3>
+    <div class="panel">
+        <div class="panel-body">
+            {% block content_body %}{% endblock %}
+        </div>
+    </div>
+    {% block content_footer %}{% endblock %}
+{% endblock %}
+
+{% block footer_js %}
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+
+    {{ parent() }}
+{% endblock footer_js %}

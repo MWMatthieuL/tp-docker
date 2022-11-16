@@ -1,0 +1,5 @@
+smart_core:
+    mailer:
+        sender_email: "%env(SENDER_EMAIL)%"
+        sender_name: "%env(SENDER_NAME)%"
+    project_title: '%env(SMART_PROJECT_NAME)%'

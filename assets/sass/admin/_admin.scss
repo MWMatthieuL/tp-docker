@@ -1,0 +1,24 @@
+//== Load Libraries
+@import '~font-awesome/css/font-awesome.min.css';
+@import '~fontawesome-iconpicker/dist/css/fontawesome-iconpicker.min.css';
+@import '~bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css';
+@import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
+@import '~select2/dist/css/select2.min.css';
+
+//== Configure Bootstrap and theme variables
+@import '../../../vendor/mw/admin-bundle/Resources/sass/bootstrap_extends';
+@import './theme/variables';
+
+//== Import bootstrap
+@import '~bootstrap-sass';
+
+//== Bundles
+@import '../../../vendor/mw/admin-bundle/Resources/sass/theme';
+@import '../../../vendor/mw/core-bundle/Resources/sass/all';
+@import '../../../vendor/mw/fileupload-bundle/Resources/sass/all';
+@import '../../../vendor/mw/datatables-bundle/Resources/sass/all';
+
+//== Components
+@import './components/form';
+@import './components/panel_item';
+@import './mixins/block_spaces';

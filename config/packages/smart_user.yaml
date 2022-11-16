@@ -1,0 +1,4 @@
+smart_user:
+    model:
+        user_class: App\Entity\User
+        password_history_class: App\Entity\PasswordHistory

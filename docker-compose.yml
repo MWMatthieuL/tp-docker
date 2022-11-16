@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mariadb:10.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: skeleton
+      MYSQL_USER: mw
+      MYSQL_PASSWORD: mw
+    networks:
+      - "matop_network"
+
+  app:
+    build:
+      context: ./
+      dockerfile: docker/dev/app/Dockerfile
+    volumes:
+      - "./:/app"
+    environment:
+      - SSH_AUTH_SOCK=/.ssh-agent/socket
+    restart: always
+    networks:
+      matop_network:
+        aliases:
+          - matop.local
+    depends_on:
+      - db
+
+networks:
+  matop_network:
+    driver: bridge

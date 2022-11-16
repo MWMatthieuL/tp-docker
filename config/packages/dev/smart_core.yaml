@@ -1,0 +1,3 @@
+smart_core:
+    database_backup:
+        path: "./db/"

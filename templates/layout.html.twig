@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {% for src in get_css_includes() %}
+                <link href="{{ src }}" rel="stylesheet">
+            {% endfor %}
+            <link rel="stylesheet" href="{{ asset('dist/app.css') }}">
+            <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block footer_js %}
+            <script
+                    src="https://code.jquery.com/jquery-1.12.4.min.js"
+                    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+                    crossorigin="anonymous"></script>
+
+            <script src="{{ asset('dist/runtime.js') }}"></script>
+            <script src="{{ asset('dist/app.js') }}"></script>
+
+            {% include '@SmartCore/asset/javascripts.html.twig' %}
+            {% block view_js %}{% endblock %}
+        {% endblock %}
+    </body>
+</html>

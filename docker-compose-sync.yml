@@ -1,0 +1,9 @@
+version: "3.2"
+
+services:
+  app:
+    volumes:
+      - "skeleton_sync:/app:nocopy"
+
+volumes:
+  skeleton_sync:

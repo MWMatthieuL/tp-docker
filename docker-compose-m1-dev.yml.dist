@@ -1,0 +1,70 @@
+# This file override the default configuration for Arm processors
+# Then configure the file as you need.
+
+services:
+  ssh-agent:
+    platform: linux/amd64
+    image: nardeas/ssh-agent:latest
+    volumes:
+      - "socket_dir:/.ssh-agent"
+      - "~/mw-ssh:/root/.ssh:ro"
+    environment:
+      - SSH_AUTH_SOCK=/.ssh-agent/socket
+
+  app:
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "socket_dir:/.ssh-agent"
+      - "~/mw-ssh:/root/.ssh:ro"
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      UPLOAD_LIMIT: 512M
+      MAX_EXECUTION_TIME: 300
+    networks:
+      - "matop_network"
+
+  mailcatcher:
+    image: sj26/mailcatcher:latest
+    ports:
+      - "1080:1080"
+    networks:
+      matop_network:
+        aliases:
+          - mailcatchersmtp
+
+  sonarqube:
+    image: mwizner/sonarqube:8.9.5-community
+    ports:
+      - "9000:9000"
+    networks:
+      matop_network:
+        aliases:
+          - sonarqube
+
+  selenium:
+    image: selenium/standalone-chrome-debug:latest
+    ports:
+      - "5900:5900"
+    shm_size: "2g"
+    networks:
+      - "matop_network"
+
+  blackfire:
+    image: blackfire/blackfire:v2
+    environment:
+      BLACKFIRE_LOG_LEVEL: 4
+      BLACKFIRE_SERVER_ID:
+      BLACKFIRE_SERVER_TOKEN:
+    networks:
+      - "matop_network"
+
+volumes:
+  socket_dir:

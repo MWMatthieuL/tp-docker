@@ -1,0 +1,11 @@
+sync:
+    defaults:
+        mode: "two-way-resolved"
+        ignore:
+            vcs: true
+            paths:
+                - ".idea"
+                - ".DS_Store"
+        permissions:
+            defaultFileMode: 0644
+            defaultDirectoryMode: 0755

@@ -1,0 +1,26 @@
+# This file override the default configuration ;
+# Please copy this file as docker-compose-dev.yml ;
+# Then configure the file as you need.
+
+services:
+  app:
+    ports:
+      - "80:80"
+      - "443:443"
+
+  mailcatcher:
+    image: schickling/mailcatcher:latest
+    ports:
+      - "1080:1080"
+    networks:
+      matop_network:
+        aliases:
+          - mailcatchersmtp
+
+  selenium:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "5900:5900"
+    shm_size: "2g"
+    networks:
+      - "matop_network"

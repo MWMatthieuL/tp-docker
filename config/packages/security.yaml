@@ -1,0 +1,33 @@
+security:
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
+    role_hierarchy:
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_ADMIN: ROLE_USER
+
+    providers:
+        smart_user:
+            id: SmartUserBundle\Security\User\UsernameEmailProvider
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            form_login:
+                enable_csrf: true
+                provider: smart_user
+            logout: true
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+     - { path: ^/admin, roles: ROLE_ADMIN }
